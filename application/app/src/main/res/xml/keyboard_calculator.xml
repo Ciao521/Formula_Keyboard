@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keyWidth="14.3%p"
+    android:keyHeight="35dp">
+
+    <Row>
+        <Key android:codes="14" android:keyLabel="7" android:isRepeatable="true" android:keyEdgeFlags="right"/>
+        <Key android:codes="15" android:keyLabel="8" android:isRepeatable="true"/>
+        <Key android:codes="16" android:keyLabel="9" android:isRepeatable="true"/>
+        <Key android:codes="10000" android:keyLabel=":"/>
+        <Key android:codes="10001" android:keyLabel="×"/>
+        <Key android:codes="10002" android:keyLabel="＋"/>
+        <Key android:codes="10003" android:keyLabel="/"/>
+
+    </Row>
+    <Row>
+        <Key android:codes="11" android:keyLabel="4" android:keyEdgeFlags="right" android:isRepeatable="true"/>
+        <Key android:codes="12" android:keyLabel="5" android:isRepeatable="true"/>
+        <Key android:codes="13" android:keyLabel="6" android:isRepeatable="true"/>
+
+        <Key android:codes="10004" android:keyLabel="~"/>
+        <Key android:codes="10005" android:keyLabel="÷"/>
+        <Key android:codes="10006" android:keyLabel="-"/>
+        <Key android:codes="10007" android:keyLabel="%" />
+    </Row>
+    <Row>
+        <Key android:codes="8"  android:keyLabel="1" android:keyEdgeFlags="right"/>
+        <Key android:codes="9"  android:keyLabel="2" android:isRepeatable="true"/>
+        <Key android:codes="10" android:keyLabel="3" android:isRepeatable="true"/>
+
+        <Key android:codes="10008" android:keyLabel="("/>
+        <Key android:codes="10009" android:keyLabel=")"/>
+        <Key android:codes="10010" android:keyLabel="="/>
+        <Key android:codes="-5" android:keyLabel="🔙" android:isRepeatable="true"/>
+
+
+    </Row>
+    <Row>
+        <Key android:codes="7"  android:keyLabel="0" android:keyEdgeFlags="right" android:isRepeatable="true"/>
+
+        <Key android:codes="10011" android:keyLabel="." />
+        <Key android:codes="10012" android:keyLabel="," />
+
+        <Key android:codes="62" android:keyLabel=" " android:keyWidth="42.8%p" android:isRepeatable="true"/>
+        <Key android:codes="66" android:keyLabel="↩︎"  android:isRepeatable="true"/>
+    </Row>
+    <!--
+    android:keyEdgeFlags="right"
+    android:keyEdgeFlags="left"
+        android:keyWidth="10%p"
+            android:horizontalGap="0px"
+        android:verticalGap="0px"
+
+    android:isRepeatable="true"
+    -->
+</Keyboard>
