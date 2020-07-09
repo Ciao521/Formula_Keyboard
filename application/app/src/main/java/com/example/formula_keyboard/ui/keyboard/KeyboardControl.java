@@ -1,5 +1,7 @@
 package com.example.formula_keyboard.ui.keyboard;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.inputmethodservice.InputMethodService;
@@ -9,6 +11,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.Button;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+
 
 import com.example.formula_keyboard.R;
 
@@ -31,24 +38,35 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
 
     private KeyboardView keyboardView;
     private Keyboard keyboard;
-
     //初回だけ呼ばれる
     @Override
     public void onCreate() {
         super.onCreate();
+
     }
 
     //初回だけ呼ばれる
     @Override
     public View onCreateInputView() {
-        super.onCreateInputView();
+        //super.onCreateInputView();
+
+
+        @SuppressLint("ResourceType")
+        LinearLayout view = (LinearLayout) View.inflate(this, R.xml.navigator_bar, null);
+        //View keyboardContent=(View) view.findViewById(R.id.keyboard_content);
+        HorizontalScrollView scrollView = (HorizontalScrollView) view.findViewById(R.id.keyboard_bar);
+
+
 
         keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+        //KeyboardView kv = (KeyboardView) getLayoutInflater().inflate(keyboard.xml, null);
         keyboard = new Keyboard(this, R.xml.keyboard_calculator);
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyboardActionListener(this);
         keyboardView.setPreviewEnabled(false);
-        return keyboardView;
+        view.addView(keyboardView,1);
+        return view;
+
     }
 
     //キーボードが表示されるたびに呼ばれるメソッド
