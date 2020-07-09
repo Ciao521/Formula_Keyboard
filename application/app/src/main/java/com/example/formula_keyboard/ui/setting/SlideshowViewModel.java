@@ -1,4 +1,4 @@
-package com.example.formula_keyboard.ui.slideshow;
+package com.example.formula_keyboard.ui.setting;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
