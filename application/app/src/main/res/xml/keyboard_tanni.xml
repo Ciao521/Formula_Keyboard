@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:keyWidth="10%p"
+    android:horizontalGap="0px"
+    android:verticalGap="0px"
+    android:keyHeight="40dp">
+
+    <Row>
+        <Key android:codes="10000"  android:keyLabel="mg" android:keyEdgeFlags="left" />
+        <Key android:codes="10001"  android:keyLabel="g" />
+        <Key android:codes="10002" android:keyLabel="kg" />
+        <Key android:codes="10003" android:keyLabel="mm" />
+        <Key android:codes="10004" android:keyLabel="cm" />
+        <Key android:codes="10005" android:keyLabel="m" />
+        <Key android:codes="10006" android:keyLabel="km" />
+        <Key android:codes="10007" android:keyLabel="mL" />
+        <Key android:codes="10026" android:keyLabel="c" />
+        <Key android:codes="10027" android:keyLabel="k" />android:keyEdgeFlags="right" />
+    </Row>
+
+    <Row>
+        <Key android:codes="10008"  android:keyLabel="dL" android:keyEdgeFlags="left" />
+        <Key android:codes="10009"  android:keyLabel="L" />
+        <Key android:codes="10011" android:keyLabel="㎡" />
+        <Key android:codes="10012" android:keyLabel="㎥" />
+        <Key android:codes="10013" android:keyLabel="ha" />
+        <Key android:codes="10014" android:keyLabel="m/s" />
+        <Key android:codes="10015" android:keyLabel="mol" />
+        <Key android:codes="10028" android:keyLabel="N" />
+        <Key android:codes="10030" android:keyLabel="J" />
+        <Key android:codes="10029" android:keyLabel="rad" />android:keyEdgeFlags="right" />
+    </Row>
+
+    <Row>
+        <Key android:codes="10016"  android:keyLabel="mol/L" android:keyEdgeFlags="left" />
+        <Key android:codes="10017"  android:keyLabel="℃" />
+        <Key android:codes="10018" android:keyLabel="℉" />
+        <Key android:codes="10019" android:keyLabel="pH" />
+        <Key android:codes="10020" android:keyLabel="Hz" />
+        <Key android:codes="10021" android:keyLabel="Ω" />
+        <Key android:codes="10022" android:keyLabel="A" />
+        <Key android:codes="10023" android:keyLabel="V" />
+        <Key android:codes="66" android:keyLabel="確定" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right" />
+    </Row>
+
+    <Row> <Key android:codes="10035" android:keyLabel="W" /> android:keyEdgeFlags="left" />
+        <Key android:codes="10031" android:keyLabel="/" />
+        <Key android:codes="10033" android:keyLabel="s" />
+        <Key android:codes="10034" android:keyLabel="h" />
+        <Key android:codes="62" android:keyLabel=" " android:keyWidth="40%p" android:isRepeatable="true" />
+        <Key android:codes="-5" android:keyLabel="削除" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right" />
+
+    </Row>
+
+
+
+</Keyboard>

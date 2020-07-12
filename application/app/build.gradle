@@ -5,8 +5,13 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.example.application"
         minSdkVersion 24
+=======
+        applicationId "com.example.formula_keyboard"
+        minSdkVersion 29
+>>>>>>> 11-3-add-unit-keyboard
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
