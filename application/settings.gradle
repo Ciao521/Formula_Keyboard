@@ -1,2 +1,2 @@
-rootProject.name='Formula_Keyboard'
+rootProject.name='application'
 include ':app'

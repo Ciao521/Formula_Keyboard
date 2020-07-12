@@ -1,4 +1,4 @@
-package com.example.formula_keyboard;
+package com.example.application;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.formula_keyboard", appContext.getPackageName());
+        assertEquals("com.example.application", appContext.getPackageName());
     }
 }

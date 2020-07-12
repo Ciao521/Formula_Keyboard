@@ -1,4 +1,4 @@
-package com.example.formula_keyboard;
+package com.example.application;
 
 import org.junit.Test;
 
