@@ -12,14 +12,14 @@
     <string name="menu_slideshow">設定</string>
     <string name="home_second">Home Second</string>
 
-
-
     <string name="formula_keyboard">Formula Keyboard</string>
-
-
 
     <string name="help">ヘルプ</string>
     <string name="QA">よくある質問</string>
     <string name="info">formula keyboardについて</string>
+
+    <string name="choose_calculator_button_string">計算機</string>
+    <string name="choose_unit_button_string">単位</string>
+
 
 </resources>

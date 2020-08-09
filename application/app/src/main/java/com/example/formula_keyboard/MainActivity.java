@@ -1,6 +1,8 @@
 package com.example.formula_keyboard;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 
@@ -38,6 +40,30 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+  /*    データの読み出し
+
+        SharedPreferences preferences=getSharedPreferences("KEYBOARDS",MODE_PRIVATE);
+        String stringItem = preferences.getString("ARRAY","");
+        String[] numString;
+        int[] num;
+        if(stringItem != null && stringItem.length() != 0){
+            numString=stringItem.split(",",0);
+            if(numString[0]!=""){
+                int i;
+                num=new int[numString.length];
+                for(i=0;i<numString.length;i++){
+                    num[i]=Integer.parseInt(numString[i]);
+                }
+            }
+        }
+*/
+  /*    データの書き込み
+
+   */
+        SharedPreferences preferences=getSharedPreferences("KEYBOARDS",MODE_PRIVATE);
+        String data="1,2";
+        preferences.edit().putString("ARRAY",data).commit();
     }
 
     @Override

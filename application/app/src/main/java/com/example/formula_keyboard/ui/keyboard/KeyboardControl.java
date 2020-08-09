@@ -1,5 +1,7 @@
 package com.example.formula_keyboard.ui.keyboard;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -18,6 +20,9 @@ import android.widget.ScrollView;
 
 
 import com.example.formula_keyboard.R;
+import com.example.formula_keyboard.ui.setting.help.HelpFragment;
+import com.example.formula_keyboard.ui.setting.info.InfoFragment;
+import com.example.formula_keyboard.ui.setting.qa.QAFragment;
 
 /*
 public class Test_Keyboard extends AppCompatActivity {
@@ -34,10 +39,14 @@ public class Test_Keyboard extends AppCompatActivity {
 
 
 
-public class KeyboardControl extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
+public class KeyboardControl extends InputMethodService implements KeyboardView.OnKeyboardActionListener , View.OnClickListener {
 
-    private KeyboardView keyboardView;
-    private Keyboard keyboard;
+    private static KeyboardView keyboardViewAtControl;
+    private static Keyboard keyboardAtControl;
+    private static KeyboardControl contextAtControl;
+    private static int keyboardNumber=1;
+    private LinearLayout viewAtControl;
+
     //初回だけ呼ばれる
     @Override
     public void onCreate() {
@@ -49,29 +58,56 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
     @Override
     public View onCreateInputView() {
         //super.onCreateInputView();
-
+        contextAtControl =this;
 
         @SuppressLint("ResourceType")
-        LinearLayout view = (LinearLayout) View.inflate(this, R.xml.navigator_bar, null);
-        //View keyboardContent=(View) view.findViewById(R.id.keyboard_content);
-        HorizontalScrollView scrollView = (HorizontalScrollView) view.findViewById(R.id.keyboard_bar);
-
-
-
-        keyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+        LinearLayout view= (LinearLayout) View.inflate(this, R.xml.navigator_bar, null);
+        viewAtControl=view;
         //KeyboardView kv = (KeyboardView) getLayoutInflater().inflate(keyboard.xml, null);
-        keyboard = new Keyboard(this, R.xml.keyboard_calculator);
-        keyboardView.setKeyboard(keyboard);
-        keyboardView.setOnKeyboardActionListener(this);
-        keyboardView.setPreviewEnabled(false);
-        view.addView(keyboardView,1);
-        return view;
+        switch (this.keyboardNumber){
+            case 1:
+                //KeyboardCalculator.setKeyboardCalculator(contextAtControl,view);
+                keyboardViewAtControl = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+                setKeyboardCalculator();
+                viewAtControl.addView(keyboardViewAtControl,1);
+                break;
+            case 2:
+
+                keyboardViewAtControl = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+                setKeyboardUnit();
+                viewAtControl.addView(keyboardViewAtControl,1);
+                break;
+            default:
+               //setKeyboardCalculator();
+                break;
+        }
+        viewAtControl.findViewById(R.id.choose_calculator_button).setOnClickListener(this);
+        viewAtControl.findViewById(R.id.choose_unit_button).setOnClickListener(this);
+
+        return viewAtControl;
 
     }
+
+    public final static void setKeyboardCalculator(){
+
+        keyboardAtControl = new Keyboard(contextAtControl, R.xml.keyboard_calculator);
+        keyboardViewAtControl.setKeyboard(keyboardAtControl);
+        keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
+        keyboardViewAtControl.setPreviewEnabled(false);
+    }
+    public final static void setKeyboardUnit(){
+        keyboardAtControl = new Keyboard(contextAtControl, R.xml.keyboard_unit);
+        keyboardViewAtControl.setKeyboard(keyboardAtControl);
+        keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
+        keyboardViewAtControl.setPreviewEnabled(false);
+    }
+
+
 
     //キーボードが表示されるたびに呼ばれるメソッド
     @Override
     public void onStartInputView(EditorInfo editorInfo, boolean restarting) {
+
         //なんらかの処理
     }
 
@@ -85,88 +121,44 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection ic = getCurrentInputConnection();
-        switch (primaryCode) {
-            case KeyEvent.KEYCODE_1:
-                ic.commitText("1", 1);
+        switch (keyboardNumber){
+            case 1:
+                KeyboardCalculator keyboardCalculator=new KeyboardCalculator();
+                keyboardCalculator.keyDown(primaryCode,keyCodes,ic);
                 break;
-            case KeyEvent.KEYCODE_2:
-                ic.commitText("2", 1);
+            case 2:
+               KeyboardUnit keyboardUnit=new KeyboardUnit();
+               keyboardUnit.keyDown(primaryCode,keyCodes,ic);
                 break;
-            case KeyEvent.KEYCODE_3:
-                ic.commitText("3", 1);
-                break;
-            case KeyEvent.KEYCODE_4:
-                ic.commitText("4", 1);
-                break;
-            case KeyEvent.KEYCODE_5:
-                ic.commitText("5", 1);
-                break;
-            case KeyEvent.KEYCODE_6:
-                ic.commitText("6", 1);
-                break;
-            case KeyEvent.KEYCODE_7:
-                ic.commitText("7", 1);
-                break;
-            case KeyEvent.KEYCODE_8:
-                ic.commitText("8", 1);
-                break;
-            case KeyEvent.KEYCODE_9:
-                ic.commitText("9", 1);
-                break;
-            case KeyEvent.KEYCODE_0:
-                ic.commitText("0", 1);
-                break;
-            case Keyboard.KEYCODE_DELETE:
-                ic.deleteSurroundingText(1, 0);
-                break;
-            case KeyEvent.KEYCODE_ENTER:
-                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-                break;
-            case KeyEvent.KEYCODE_SPACE:
-                ic.commitText(" ",1);
-                break;
-            case 10000:
-                ic.commitText(":",1);
-                break;
-            case 10001:
-                ic.commitText("×",1);
-                break;
-            case 10002:
-                ic.commitText("+",1);
-                break;
-            case 10003:
-                ic.commitText("/",1);
-                break;
-            case 10004:
-                ic.commitText("~",1);
-                break;
-            case 10005:
-                ic.commitText("÷",1);
-                break;
-            case 10006:
-                ic.commitText("-",1);
-                break;
-            case 10007:
-                ic.commitText("%",1);
-                break;
-            case 10008:
-                ic.commitText("(",1);
-                break;
-            case 10009:
-                ic.commitText(")",1);
-                break;
-            case 10010:
-                ic.commitText("=",1);
-                break;
-            case 10011:
-                ic.commitText(".",1);
-                break;
-            case 10012:
-                ic.commitText(",",1);
-                break;
+        }
+    }
+    @Override
+    public void onClick(View view){
+        Log.i("CHANGE", "Current status " + keyboardNumber);
 
-            default:
-                break;
+        if(view!=null){
+            switch (view.getId()){
+                case R.id.choose_calculator_button:
+                    keyboardNumber=1;
+                    keyboardAtControl=new Keyboard(this,R.xml.keyboard_calculator);
+                    keyboardViewAtControl.setKeyboard(keyboardAtControl);
+                    Log.i("CHANGE", "Current status " + keyboardNumber);
+                    keyboardViewAtControl.invalidateAllKeys();
+                    break;
+                case R.id.choose_unit_button:
+                    keyboardNumber=2;
+                    keyboardAtControl=new Keyboard(this,R.xml.keyboard_unit);
+                    keyboardViewAtControl.setKeyboard(keyboardAtControl);
+                    Log.i("CHANGE", "Current status " + keyboardNumber);
+                    keyboardViewAtControl.invalidateAllKeys();
+
+                    break;
+                case R.id.choose_button1:
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

@@ -1,61 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/keyboard_layout">
 
 
-    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/keyboard_navigator_height"
-        android:id="@+id/keyboard_bar"
-        android:background="#111111">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:id="@+id/keyboard_layout"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.NavigatorBar.NavigatorBar"
+        >
+
+
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" >
+            android:layout_height="@dimen/keyboard_navigator_height"
+            android:id="@+id/keyboard_bar"
+            android:background="#111111">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
 
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button1" />
+                <Button
+                    android:id="@+id/choose_calculator_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_calculator_button_string"/>
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button2" />
+                <Button
+                    android:id="@+id/choose_unit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_unit_button_string" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button3" />
+                <Button
+                    android:id="@+id/choose_button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Button3" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button4" />
+                <Button
+                    android:id="@+id/choose_button2"
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button5" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Button4" />
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button6" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/choose_button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Button5" />
 
-
-
-    </HorizontalScrollView>
-
-</LinearLayout>
-
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
