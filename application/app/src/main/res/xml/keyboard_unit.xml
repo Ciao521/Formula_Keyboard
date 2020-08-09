@@ -17,7 +17,7 @@
         <Key android:codes="10006" android:keyLabel="km" />
         <Key android:codes="10007" android:keyLabel="mL" />
         <Key android:codes="10026" android:keyLabel="c" />
-        <Key android:codes="10027" android:keyLabel="k" />android:keyEdgeFlags="right" />
+        <Key android:codes="10027" android:keyLabel="k" />
     </Row>
 
     <Row>
@@ -30,11 +30,11 @@
         <Key android:codes="10015" android:keyLabel="mol" />
         <Key android:codes="10028" android:keyLabel="N" />
         <Key android:codes="10030" android:keyLabel="J" />
-        <Key android:codes="10029" android:keyLabel="rad" />android:keyEdgeFlags="right" />
+        <Key android:codes="10029" android:keyLabel="rad" />
     </Row>
 
     <Row>
-        <Key android:codes="10016"  android:keyLabel="mol/L" android:keyEdgeFlags="left" />
+        <Key android:codes="10016"  android:keyLabel="mol/L" android:keyEdgeFlags="left"/>
         <Key android:codes="10017"  android:keyLabel="℃" />
         <Key android:codes="10018" android:keyLabel="℉" />
         <Key android:codes="10019" android:keyLabel="pH" />
@@ -45,7 +45,7 @@
         <Key android:codes="66" android:keyLabel="確定" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right" />
     </Row>
 
-    <Row> <Key android:codes="10035" android:keyLabel="W" /> android:keyEdgeFlags="left" />
+    <Row> <Key android:codes="10035" android:keyLabel="W" />
         <Key android:codes="10031" android:keyLabel="/" />
         <Key android:codes="10033" android:keyLabel="s" />
         <Key android:codes="10034" android:keyLabel="h" />
