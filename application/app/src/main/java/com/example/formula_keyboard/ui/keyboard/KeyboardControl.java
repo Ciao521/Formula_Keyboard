@@ -1,4 +1,5 @@
 package com.example.formula_keyboard.ui.keyboard;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -38,13 +39,12 @@ public class Test_Keyboard extends AppCompatActivity {
 //package com.sample.customkeyboard;
 
 
-
-public class KeyboardControl extends InputMethodService implements KeyboardView.OnKeyboardActionListener , View.OnClickListener {
+public class KeyboardControl extends InputMethodService implements KeyboardView.OnKeyboardActionListener, View.OnClickListener {
 
     private static KeyboardView keyboardViewAtControl;
     private static Keyboard keyboardAtControl;
     private static KeyboardControl contextAtControl;
-    private static int keyboardNumber=1;
+    private static int keyboardNumber = 1;
     private LinearLayout viewAtControl;
 
     //初回だけ呼ばれる
@@ -58,50 +58,63 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
     @Override
     public View onCreateInputView() {
         //super.onCreateInputView();
-        contextAtControl =this;
+        contextAtControl = this;
 
         @SuppressLint("ResourceType")
-        LinearLayout view= (LinearLayout) View.inflate(this, R.xml.navigator_bar, null);
-        viewAtControl=view;
+        LinearLayout view = (LinearLayout) View.inflate(this, R.xml.navigator_bar, null);
+        viewAtControl = view;
         //KeyboardView kv = (KeyboardView) getLayoutInflater().inflate(keyboard.xml, null);
-        switch (this.keyboardNumber){
+        switch (this.keyboardNumber) {
             case 1:
                 //KeyboardCalculator.setKeyboardCalculator(contextAtControl,view);
                 keyboardViewAtControl = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
                 setKeyboardCalculator();
-                viewAtControl.addView(keyboardViewAtControl,1);
+                viewAtControl.addView(keyboardViewAtControl, 1);
                 break;
             case 2:
 
                 keyboardViewAtControl = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
                 setKeyboardUnit();
-                viewAtControl.addView(keyboardViewAtControl,1);
+                viewAtControl.addView(keyboardViewAtControl, 1);
+                break;
+            case 3:
+                keyboardViewAtControl = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+                setKeyboardHighSchool();
+                viewAtControl.addView(keyboardViewAtControl, 1);
                 break;
             default:
-               //setKeyboardCalculator();
+                //setKeyboardCalculator();
                 break;
         }
         viewAtControl.findViewById(R.id.choose_calculator_button).setOnClickListener(this);
         viewAtControl.findViewById(R.id.choose_unit_button).setOnClickListener(this);
+        viewAtControl.findViewById(R.id.choose_high_school_button).setOnClickListener(this);
 
         return viewAtControl;
 
     }
 
-    public final static void setKeyboardCalculator(){
+    public final static void setKeyboardCalculator() {
 
         keyboardAtControl = new Keyboard(contextAtControl, R.xml.keyboard_calculator);
         keyboardViewAtControl.setKeyboard(keyboardAtControl);
         keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
         keyboardViewAtControl.setPreviewEnabled(false);
     }
-    public final static void setKeyboardUnit(){
+
+    public final static void setKeyboardUnit() {
         keyboardAtControl = new Keyboard(contextAtControl, R.xml.keyboard_unit);
         keyboardViewAtControl.setKeyboard(keyboardAtControl);
         keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
         keyboardViewAtControl.setPreviewEnabled(false);
     }
 
+    public final static void setKeyboardHighSchool() {
+        keyboardAtControl = new Keyboard(contextAtControl, R.xml.keyboard_high_school);
+        keyboardViewAtControl.setKeyboard(keyboardAtControl);
+        keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
+        keyboardViewAtControl.setPreviewEnabled(false);
+    }
 
 
     //キーボードが表示されるたびに呼ばれるメソッド
@@ -121,40 +134,49 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection ic = getCurrentInputConnection();
-        switch (keyboardNumber){
+        switch (keyboardNumber) {
             case 1:
-                KeyboardCalculator keyboardCalculator=new KeyboardCalculator();
-                keyboardCalculator.keyDown(primaryCode,keyCodes,ic);
+                KeyboardCalculator keyboardCalculator = new KeyboardCalculator();
+                keyboardCalculator.keyDown(primaryCode, keyCodes, ic);
                 break;
             case 2:
-               KeyboardUnit keyboardUnit=new KeyboardUnit();
-               keyboardUnit.keyDown(primaryCode,keyCodes,ic);
+                KeyboardUnit keyboardUnit = new KeyboardUnit();
+                keyboardUnit.keyDown(primaryCode, keyCodes, ic);
+                break;
+            case 3:
+                KeyboardHighSchool keyboardHighSchool = new KeyboardHighSchool();
+                keyboardHighSchool.keyDown(primaryCode, keyCodes, ic);
                 break;
         }
     }
+
     @Override
-    public void onClick(View view){
+    public void onClick(View view) {
         Log.i("CHANGE", "Current status " + keyboardNumber);
 
-        if(view!=null){
-            switch (view.getId()){
+        if (view != null) {
+            switch (view.getId()) {
                 case R.id.choose_calculator_button:
-                    keyboardNumber=1;
-                    keyboardAtControl=new Keyboard(this,R.xml.keyboard_calculator);
+                    keyboardNumber = 1;
+                    keyboardAtControl = new Keyboard(this, R.xml.keyboard_calculator);
                     keyboardViewAtControl.setKeyboard(keyboardAtControl);
                     Log.i("CHANGE", "Current status " + keyboardNumber);
                     keyboardViewAtControl.invalidateAllKeys();
                     break;
                 case R.id.choose_unit_button:
-                    keyboardNumber=2;
-                    keyboardAtControl=new Keyboard(this,R.xml.keyboard_unit);
+                    keyboardNumber = 2;
+                    keyboardAtControl = new Keyboard(this, R.xml.keyboard_unit);
                     keyboardViewAtControl.setKeyboard(keyboardAtControl);
                     Log.i("CHANGE", "Current status " + keyboardNumber);
                     keyboardViewAtControl.invalidateAllKeys();
 
                     break;
-                case R.id.choose_button1:
-
+                case R.id.choose_high_school_button:
+                    keyboardNumber = 3;
+                    keyboardAtControl = new Keyboard(this, R.xml.keyboard_high_school);
+                    keyboardViewAtControl.setKeyboard(keyboardAtControl);
+                    Log.i("CHANGE", "Current status " + keyboardNumber);
+                    keyboardViewAtControl.invalidateAllKeys();
                     break;
                 default:
                     break;

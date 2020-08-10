@@ -20,6 +20,7 @@
 
     <string name="choose_calculator_button_string">計算機</string>
     <string name="choose_unit_button_string">単位</string>
+    <string name="choose_high_school_button_string">高校</string>
 
 
 </resources>

@@ -6,8 +6,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/keyboard_layout"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".ui.NavigatorBar.NavigatorBar"
         >
 
 
@@ -34,10 +32,10 @@
                     android:text="@string/choose_unit_button_string" />
 
                 <Button
-                    android:id="@+id/choose_button1"
+                    android:id="@+id/choose_high_school_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button3" />
+                    android:text="@string/choose_high_school_button_string" />
 
                 <Button
                     android:id="@+id/choose_button2"

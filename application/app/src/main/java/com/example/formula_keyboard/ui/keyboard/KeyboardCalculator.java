@@ -15,6 +15,8 @@ import com.example.formula_keyboard.R;
 public class KeyboardCalculator extends InputMethodService {
     private static KeyboardView keyboardViewAtControl;
     private static Keyboard keyboardAtControl;
+
+    //未使用(試している最中で、エラーのため使用不可)
     public final static void setKeyboardCalculator(KeyboardControl context,LinearLayout view){
         //keyboardViewAtControl = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
 
