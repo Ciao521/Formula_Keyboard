@@ -38,11 +38,11 @@
                     android:text="@string/choose_high_school_button_string" />
 
                 <Button
-                    android:id="@+id/choose_button2"
+                    android:id="@+id/choose_alphabet_button"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button4" />
+                    android:text="@string/choose_alphabet_button_string" />
 
                 <Button
                     android:id="@+id/choose_button3"

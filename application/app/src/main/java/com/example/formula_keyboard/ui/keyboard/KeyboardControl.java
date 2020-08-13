@@ -46,6 +46,7 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
     private static KeyboardControl contextAtControl;
     private static int keyboardNumber = 1;
     private LinearLayout viewAtControl;
+    boolean isUpper;
 
     //初回だけ呼ばれる
     @Override
@@ -82,6 +83,11 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
                 setKeyboardHighSchool();
                 viewAtControl.addView(keyboardViewAtControl, 1);
                 break;
+            case 4:
+                keyboardViewAtControl = (KeyboardView) getLayoutInflater().inflate(R.layout.keyboard_view, null);
+                setKeyboardAlphabetLowerCase();
+                viewAtControl.addView(keyboardViewAtControl, 1);
+                break;
             default:
                 //setKeyboardCalculator();
                 break;
@@ -89,6 +95,7 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
         viewAtControl.findViewById(R.id.choose_calculator_button).setOnClickListener(this);
         viewAtControl.findViewById(R.id.choose_unit_button).setOnClickListener(this);
         viewAtControl.findViewById(R.id.choose_high_school_button).setOnClickListener(this);
+        viewAtControl.findViewById(R.id.choose_alphabet_button).setOnClickListener(this);
 
         return viewAtControl;
 
@@ -115,8 +122,20 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
         keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
         keyboardViewAtControl.setPreviewEnabled(false);
     }
-
-
+    public final static void setKeyboardAlphabetLowerCase() {
+        keyboardAtControl = new Keyboard(contextAtControl, R.xml.keyboard_alphabet_lower_case);
+        keyboardViewAtControl.setKeyboard(keyboardAtControl);
+        keyboardViewAtControl.setShifted(false);
+        keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
+        keyboardViewAtControl.setPreviewEnabled(false);
+    }
+    public final static void setKeyboardAlphabetUpperCase() {
+        keyboardAtControl = new Keyboard(contextAtControl, R.xml.keyboard_alphabet_upper_case);
+        keyboardViewAtControl.setKeyboard(keyboardAtControl);
+        keyboardViewAtControl.setShifted(true);
+        keyboardViewAtControl.setOnKeyboardActionListener(contextAtControl);
+        keyboardViewAtControl.setPreviewEnabled(false);
+    }
     //キーボードが表示されるたびに呼ばれるメソッド
     @Override
     public void onStartInputView(EditorInfo editorInfo, boolean restarting) {
@@ -147,6 +166,26 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
                 KeyboardHighSchool keyboardHighSchool = new KeyboardHighSchool();
                 keyboardHighSchool.keyDown(primaryCode, keyCodes, ic);
                 break;
+            case 4:
+                if(primaryCode==Keyboard.KEYCODE_SHIFT){
+                    if(isUpper == true) isUpper = false;
+                    else isUpper = true;
+                    if (isUpper == true) {
+                        //inflate keyboard_alphabet_upper_casealphabet_upper_case.xml file
+                        setKeyboardAlphabetUpperCase();
+                        Log.i("KEYCODE_SHIFT", "Current status " + isUpper);
+                        keyboardViewAtControl.invalidateAllKeys();
+                    }else{
+                        setKeyboardAlphabetLowerCase();
+                        Log.i("KEYCODE_SHIFT", "Current status " + isUpper);
+                        keyboardViewAtControl.invalidateAllKeys();
+                    }
+                }else{
+                    KeyboardAlphabet keyboardAlphabet=new KeyboardAlphabet();
+                    keyboardAlphabet.keyDown(primaryCode, keyCodes, ic);
+                }
+                break;
+
         }
     }
 
@@ -178,6 +217,15 @@ public class KeyboardControl extends InputMethodService implements KeyboardView.
                     Log.i("CHANGE", "Current status " + keyboardNumber);
                     keyboardViewAtControl.invalidateAllKeys();
                     break;
+                case R.id.choose_alphabet_button:
+                    keyboardNumber = 4;
+                    isUpper=false;
+                    keyboardAtControl = new Keyboard(this, R.xml.keyboard_alphabet_lower_case);
+                    keyboardViewAtControl.setKeyboard(keyboardAtControl);
+                    Log.i("CHANGE", "Current status " + keyboardNumber);
+                    keyboardViewAtControl.invalidateAllKeys();
+                    break;
+
                 default:
                     break;
             }
