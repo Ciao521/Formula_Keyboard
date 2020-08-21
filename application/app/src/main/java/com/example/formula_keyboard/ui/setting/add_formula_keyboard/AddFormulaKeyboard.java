@@ -1,4 +1,4 @@
-package com.example.dialog;
+package com.example.formula_keyboard.ui.setting.add_formula_keyboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
@@ -8,6 +8,9 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.formula_keyboard.R;
+/*
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,3 +57,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
+
+ */
