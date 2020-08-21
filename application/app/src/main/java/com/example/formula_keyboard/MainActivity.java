@@ -23,8 +23,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.
-
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         if(!isAddKeyboard){
             showMyDialog();
         }
-
   /*    データの読み出し
 
         SharedPreferences preferences=getSharedPreferences("KEYBOARDS",MODE_PRIVATE);
