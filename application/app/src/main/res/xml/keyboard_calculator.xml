@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keyWidth="14.3%p"
-    android:keyHeight="35dp">
+    android:keyHeight="40dp">
 
     <Row>
         <Key android:codes="14" android:keyLabel="7" android:isRepeatable="true" android:keyEdgeFlags="right"/>
@@ -45,7 +45,7 @@
         <Key android:codes="10012" android:keyLabel="," />
 
         <Key android:codes="62" android:keyLabel=" " android:keyWidth="42.8%p" android:isRepeatable="true"/>
-        <Key android:codes="66" android:keyLabel="↩︎"  android:isRepeatable="true"/>
+        <Key android:codes="66" android:keyLabel="確定"  android:isRepeatable="true"/>
     </Row>
     <!--
     android:keyEdgeFlags="right"

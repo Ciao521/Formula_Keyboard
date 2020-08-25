@@ -35,24 +35,25 @@
 
     <Row>
         <Key android:codes="10016"  android:keyLabel="mol/L" android:keyEdgeFlags="left"/>
-        <Key android:codes="10017"  android:keyLabel="℃" />
-        <Key android:codes="10018" android:keyLabel="℉" />
-        <Key android:codes="10019" android:keyLabel="pH" />
-        <Key android:codes="10020" android:keyLabel="Hz" />
-        <Key android:codes="10021" android:keyLabel="Ω" />
-        <Key android:codes="10022" android:keyLabel="A" />
-        <Key android:codes="10023" android:keyLabel="V" />
-        <Key android:codes="66" android:keyLabel="確定" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right" />
-    </Row>
-
-    <Row> <Key android:codes="10035" android:keyLabel="W" />
-        <Key android:codes="10031" android:keyLabel="/" />
-        <Key android:codes="10033" android:keyLabel="s" />
-        <Key android:codes="10034" android:keyLabel="h" />
-        <Key android:codes="62" android:keyLabel=" " android:keyWidth="40%p" android:isRepeatable="true" />
-        <Key android:codes="-5" android:keyLabel="削除" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right" />
+        <Key android:codes="10017"  android:keyLabel="℃" android:horizontalGap="0.8%p"/>
+        <Key android:codes="10018" android:keyLabel="℉" android:horizontalGap="0.8%p"/>
+        <Key android:codes="10019" android:keyLabel="pH" android:horizontalGap="0.8%p"/>
+        <Key android:codes="10020" android:keyLabel="Hz" android:horizontalGap="0.8%p"/>
+        <Key android:codes="10021" android:keyLabel="Ω" android:horizontalGap="0.8%p"/>
+        <Key android:codes="10022" android:keyLabel="A" android:horizontalGap="0.8%p" />
+        <Key android:codes="10023" android:keyLabel="V" android:horizontalGap="0.8%p" />
+        <Key android:codes="-5" android:keyLabel="🔙" android:keyWidth="14.3%p" android:isRepeatable="true"  android:keyEdgeFlags="right"/>
 
     </Row>
+
+    <Row> <Key android:codes="10035" android:keyLabel="W" android:keyEdgeFlags="left"  />
+        <Key android:codes="10031" android:keyLabel="/" android:horizontalGap="1%p" />
+        <Key android:codes="10033" android:keyLabel="s" android:horizontalGap="1%p"/>
+        <Key android:codes="10034" android:keyLabel="h" android:horizontalGap="1%p"/>
+        <Key android:codes="62" android:keyLabel=" " android:keyWidth="42.8%p" android:isRepeatable="true"/>
+        <Key android:codes="66" android:keyLabel="確定" android:keyWidth="14.3%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
+    </Row>
+
 
 
 
