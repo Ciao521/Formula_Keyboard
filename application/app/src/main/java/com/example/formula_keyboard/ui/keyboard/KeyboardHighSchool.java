@@ -95,6 +95,9 @@ public class KeyboardHighSchool extends InputMethodService {
             case KeyEvent.KEYCODE_PERIOD:
                 ic.commitText(".",1);
                 break;
+            case 10012:
+                ic.commitText(",",1);
+                break;
             case KeyEvent.KEYCODE_SLASH:
                 ic.commitText("/",1);
                 break;
