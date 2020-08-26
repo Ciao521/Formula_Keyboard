@@ -41,12 +41,12 @@
         <Key android:codes="-5" android:keyLabel="🔙" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="10012" android:keyLabel="," android:keyEdgeFlags="left" android:horizontalGap="0.8%p"/>
-        <Key android:codes="56" android:keyLabel="."  android:horizontalGap="1%p"/>
+        <Key android:codes="10012" android:keyLabel="," android:keyEdgeFlags="left" android:keyWidth="15%p"/>
+        <Key android:codes="56" android:keyLabel="."  android:keyWidth="15%p"/>
 
 
-        <Key android:codes="62" android:keyLabel=" " android:keyWidth="50%p" android:isRepeatable="true" android:horizontalGap="1%p"/>
-        <Key android:codes="66" android:keyLabel="確定︎" android:keyWidth="25%p" android:isRepeatable="true" android:keyEdgeFlags="right" android:horizontalGap="1%p"/>
+        <Key android:codes="62" android:keyLabel=" " android:keyWidth="50%p" android:isRepeatable="true"/>
+        <Key android:codes="66" android:keyLabel="確定︎" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right" />
     </Row>
     <!--
     android:keyEdgeFlags="right"

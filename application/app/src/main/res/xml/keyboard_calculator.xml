@@ -44,8 +44,8 @@
         <Key android:codes="10011" android:keyLabel="." />
         <Key android:codes="10012" android:keyLabel="," />
 
-        <Key android:codes="62" android:keyLabel=" " android:keyWidth="42.8%p" android:isRepeatable="true"/>
-        <Key android:codes="66" android:keyLabel="確定"  android:isRepeatable="true"/>
+        <Key android:codes="62" android:keyLabel=" " android:keyWidth="37.1%p" android:isRepeatable="true" />
+        <Key android:codes="66" android:keyLabel="確定"  android:isRepeatable="true" android:keyWidth="20%p" />
     </Row>
     <!--
     android:keyEdgeFlags="right"

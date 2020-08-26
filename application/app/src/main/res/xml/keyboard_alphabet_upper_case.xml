@@ -19,15 +19,15 @@
         <Key android:codes="43" android:keyLabel="P"  android:keyEdgeFlags="right" />
     </Row>
     <Row>
-        <Key android:codes="44"  android:keyLabel="A" android:keyEdgeFlags="left" android:horizontalGap="0.8%p"/>
-        <Key android:codes="45" android:keyLabel="S" android:horizontalGap="0.8%p"/>
-        <Key android:codes="46" android:keyLabel="D" android:horizontalGap="0.8%p"/>
-        <Key android:codes="47" android:keyLabel="F" android:horizontalGap="0.8%p"/>
-        <Key android:codes="48" android:keyLabel="G" android:horizontalGap="0.8%p"/>
-        <Key android:codes="49" android:keyLabel="H" android:horizontalGap="0.8%p"/>
-        <Key android:codes="50" android:keyLabel="J" android:horizontalGap="0.8%p"/>
-        <Key android:codes="51" android:keyLabel="K" android:horizontalGap="0.8%p"/>
-        <Key android:codes="52" android:keyLabel="L" android:horizontalGap="0.8%p"/>
+        <Key android:codes="44"  android:keyLabel="A" android:keyEdgeFlags="left" android:keyWidth="11.5%p"/>
+        <Key android:codes="45" android:keyLabel="S" android:keyWidth="11%p"/>
+        <Key android:codes="46" android:keyLabel="D" android:keyWidth="11%p"/>
+        <Key android:codes="47" android:keyLabel="F" android:keyWidth="11%p"/>
+        <Key android:codes="48" android:keyLabel="G" android:keyWidth="11%p"/>
+        <Key android:codes="49" android:keyLabel="H" android:keyWidth="11%p"/>
+        <Key android:codes="50" android:keyLabel="J" android:keyWidth="11%p"/>
+        <Key android:codes="51" android:keyLabel="K" android:keyWidth="11%p"/>
+        <Key android:codes="52" android:keyLabel="L" android:keyWidth="11.5%p"/>
 
     </Row>
     <Row>
@@ -43,9 +43,9 @@
     </Row>
     <Row>
 
-        <Key android:codes="32" android:keyLabel="," android:keyEdgeFlags="left" android:horizontalGap="0.8%p"/>
-        <Key android:codes="33"   android:keyLabel="."  android:horizontalGap="1%p"/>
-        <Key android:codes="62" android:keyLabel=" " android:keyWidth="50%p" android:horizontalGap="1%p" />
-        <Key android:codes="66" android:keyLabel="確定" android:keyWidth="25%p" android:keyEdgeFlags="right" android:horizontalGap="1%p"/>
+        <Key android:codes="32" android:keyLabel="," android:keyEdgeFlags="left" android:keyWidth="15%p" />
+        <Key android:codes="33"   android:keyLabel="."  android:keyWidth="15%p" />
+        <Key android:codes="62" android:keyLabel=" " android:keyWidth="50%p" />
+        <Key android:codes="66" android:keyLabel="確定" android:keyWidth="20%p" android:keyEdgeFlags="right" />
     </Row>
 </Keyboard>
