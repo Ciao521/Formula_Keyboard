@@ -6,46 +6,47 @@
     android:keyHeight="40dp">
     ​
     <Row>
-        <Key android:codes="20000" android:keyLabel="Σ" android:keyEdgeFlags="left"/>
-        <Key android:codes="20001" android:keyLabel="log"/>
-        <Key android:codes="20002" android:keyLabel="ln"/>
-        <Key android:codes="20003" android:keyLabel="φ"/>
-        <Key android:codes="20004" android:keyLabel="Δ"/>
-        <Key android:codes="20005" android:keyLabel="√"/>
-        <Key android:codes="20006" android:keyLabel="e"/>
-        <Key android:codes="20007" android:keyLabel="exp"/>
-        <Key android:codes="20008" android:keyLabel="C"/>
-        <Key android:codes="20009" android:keyLabel="P" android:keyEdgeFlags="right"/>
+        <Key android:codes="25000" android:keyLabel="～" android:keyEdgeFlags="left"/>
+        <Key android:codes="25001" android:keyLabel="∠"/>
+        <Key android:codes="25002" android:keyLabel="°"/>
+        <Key android:codes="25003" android:keyLabel="|"/>
+        <Key android:codes="25004" android:keyLabel="±"/>
+        <Key android:codes="25005" android:keyLabel="∓"/>
+        <Key android:codes="25006" android:keyLabel="≦"/>
+        <Key android:codes="25007" android:keyLabel="≧"/>
+        <Key android:codes="25008" android:keyLabel="△"/>
+        <Key android:codes="25009" android:keyLabel="▱" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="20010" android:keyLabel="∫" android:keyEdgeFlags="left"/>
-        <Key android:codes="20011" android:keyLabel="dx"/>
-        <Key android:codes="20012" android:keyLabel="i"/>
-        <Key android:codes="20013" android:keyLabel="ρ"/>
-        <Key android:codes="20014" android:keyLabel="μ"/>
-        <Key android:codes="20015" android:keyLabel="sin"/>
-        <Key android:codes="20016" android:keyLabel="cos"/>
-        <Key android:codes="20017" android:keyLabel="tan"/>
-        <Key android:codes="20024" android:keyLabel="^"/>
-        <Key android:codes="20018" android:keyLabel="Θ" android:keyEdgeFlags="right"/>
+        <Key android:codes="25010" android:keyLabel="⊥" android:keyEdgeFlags="left"/>
+        <Key android:codes="25011" android:keyLabel="∦"/>
+        <Key android:codes="25012" android:keyLabel="√"/>
+        <Key android:codes="25013" android:keyLabel="≡"/>
+        <Key android:codes="25014" android:keyLabel="≠"/>
+        <Key android:codes="25015" android:keyLabel="≈"/>
+        <Key android:codes="25016" android:keyLabel="＞"/>
+        <Key android:codes="25017" android:keyLabel="＜"/>
+        <Key android:codes="25024" android:keyLabel="∽"/>
+        <Key android:codes="25018" android:keyLabel="!" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="20019" android:keyLabel="lim" android:keyEdgeFlags="left"/>
-        <Key android:codes="20020" android:keyLabel="→" />
-        <Key android:codes="20021" android:keyLabel="∞" />
-        <Key android:codes="20022" android:keyLabel="inf"/>
-        <Key android:codes="20023" android:keyLabel="!" />
-        <Key android:codes="20025" android:keyLabel="(" />
-        <Key android:codes="20026" android:keyLabel=")" />
-        <Key android:codes="20027" android:keyLabel="=" />
+        <Key android:codes="25019" android:keyLabel="a" android:keyEdgeFlags="left"/>
+        <Key android:codes="25020" android:keyLabel="b" />
+        <Key android:codes="25021" android:keyLabel="c" />
+        <Key android:codes="25022" android:keyLabel="d"/>
+        <Key android:codes="25023" android:keyLabel="{"  />
+        <Key android:codes="25024" android:keyLabel="}" />
+        <Key android:codes="25025" android:keyLabel="["  />
+        <Key android:codes="25026" android:keyLabel="]"/>
         <Key android:codes="-5" android:keyLabel="🔙" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:codes="10012" android:keyLabel="," android:keyEdgeFlags="left" android:keyWidth="15%p"/>
-        <Key android:codes="56" android:keyLabel="."  android:keyWidth="15%p"/>
+        <Key android:codes="25027" android:keyLabel="x" />
+        <Key android:codes="20028" android:keyLabel="y" />
+        <Key android:codes="20029" android:keyLabel="z" />
+        <Key android:codes="20030" android:keyLabel="π" />
 
-
-        <Key android:codes="62" android:keyLabel=" " android:keyWidth="50%p" android:isRepeatable="true"/>
+        <Key android:codes="62" android:keyLabel=" " android:keyWidth="40%p" android:isRepeatable="true"/>
         <Key android:codes="66" android:keyLabel="確定︎" android:keyWidth="20%p" android:isRepeatable="true" android:keyEdgeFlags="right" />
     </Row>
     <!--
