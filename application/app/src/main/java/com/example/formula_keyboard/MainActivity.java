@@ -1,15 +1,20 @@
 package com.example.formula_keyboard;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.inputmethod.InputMethodManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -22,6 +27,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,12 +54,27 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        //TODO キーボードが追加されているかの判断
-
+        //インストールされているIMEアプリケーション一覧取得
+        InputMethodManager imm = (InputMethodManager)
+                getSystemService(INPUT_METHOD_SERVICE);
+        List<InputMethodInfo> inputMethodInfoList =
+                imm.getEnabledInputMethodList();
+        int inputMethodInfoListSize = inputMethodInfoList.size();
+        for (int i = 0; i < inputMethodInfoListSize; ++i) {
+            InputMethodInfo inputMethodInfo = inputMethodInfoList.get(i);
+            CharSequence label = inputMethodInfo.loadLabel(getPackageManager());
+            Log.v("label", String.valueOf(label));
+            //Formula_Keyboardがインストールされている場合
+            if(String.valueOf(label).equals("Formula_Keyboard")) {
+                Log.v("label", String.valueOf(label)+" is active!");
+                isAddKeyboard=true;
+            }
+        }
         //キーボードが追加されていない場合はアラートを発生
         if(!isAddKeyboard){
             showMyDialog();
         }
+
   /*    データの読み出し
 
         SharedPreferences preferences=getSharedPreferences("KEYBOARDS",MODE_PRIVATE);
