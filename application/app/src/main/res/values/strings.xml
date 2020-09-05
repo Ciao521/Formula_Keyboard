@@ -15,14 +15,9 @@
     <string name="formula_keyboard">Formula Keyboard</string>
 
     <string name="help">ヘルプ</string>
-    <!--
+
     <string name="QA">よくある質問</string>
-    -->
-    <string-array name="QA_list">
-        <item>Q.キーボードの設定の方法が分かりません。 A.設定の方法はアプリ内の他のページにて詳細な説明を行っているため、そちらをご覧ください。</item>
-        <item>Q.個人情報などが盗まれたりはしませんか？ A.キーボードを提供するだけのアプリとなっていますので、個人情報などが盗まれる可能性はございません。</item>
-        <item>Q.このアプリへの意見や要望があるのですが。 A.ご意見やご要望につきましてはこちらのメールアドレスにてご連絡ください。</item>
-    </string-array>
+
     <string name="info">formula keyboardについて</string>
 
     <string name="choose_calculator_button_string">計算機</string>
