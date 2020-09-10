@@ -1,7 +1,9 @@
 package com.example.formula_keyboard.ui.gallery;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +25,12 @@ import com.example.formula_keyboard.ui.setting.help.HelpFragment;
 import com.example.formula_keyboard.ui.setting.info.InfoFragment;
 import com.example.formula_keyboard.ui.setting.qa.QAFragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class GalleryFragment extends Fragment /*implements View.OnClickListener */{
 
     private GalleryViewModel galleryViewModel;
-
+    private int[] keyboardOrderNum;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
@@ -35,6 +39,25 @@ public class GalleryFragment extends Fragment /*implements View.OnClickListener 
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager rLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(rLayoutManager);
+
+        //keyboardの画像の順番の呼び出し
+        //fragmentではgetActivity()でcontextを呼び出す必要がある
+        SharedPreferences preferences = getActivity().getSharedPreferences("KEYBOARDS", MODE_PRIVATE);
+        String keyboardOrderArray = preferences.getString("KEYBOARD_ORDER_ARRAY", "");
+        String[] keyboardOrderNumString;
+        if (keyboardOrderArray != null && keyboardOrderArray.length() != 0) {
+            //stringに空白も入っているので注意
+            keyboardOrderNumString = keyboardOrderArray.split(", ", -1);
+            if (keyboardOrderNumString[0] != "") {
+                int i;
+                keyboardOrderNum = new int[keyboardOrderNumString.length];
+                for (i = 0; i < keyboardOrderNumString.length; i++) {
+                    keyboardOrderNum[i] = Integer.parseInt(keyboardOrderNumString[i]);
+                    Log.i("data", i+ ", order is " + keyboardOrderNum[i]);
+                }
+            }
+        }
+        //TODO 画像の表示をrecycler view で実装
 
         //イベントリスナーの設置
         //root.findViewById(R.id.calculator_image_view).setOnClickListener(this);
