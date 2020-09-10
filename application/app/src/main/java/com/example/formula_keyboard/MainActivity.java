@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 
+import com.example.formula_keyboard.ui.keyboard.KeyboardData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -28,12 +29,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private boolean isAddKeyboard=false;
+    private boolean isAddKeyboard = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,15 +68,16 @@ public class MainActivity extends AppCompatActivity {
             CharSequence label = inputMethodInfo.loadLabel(getPackageManager());
             Log.v("label", String.valueOf(label));
             //Formula_Keyboardがインストールされている場合
-            if(String.valueOf(label).equals("Formula_Keyboard")) {
-                Log.v("label", String.valueOf(label)+" is active!");
-                isAddKeyboard=true;
+            if (String.valueOf(label).equals("Formula_Keyboard")) {
+                Log.v("label", String.valueOf(label) + " is active!");
+                isAddKeyboard = true;
             }
         }
         //キーボードが追加されていない場合はアラートを発生
-        if(!isAddKeyboard){
+        if (!isAddKeyboard) {
             showMyDialog();
         }
+
 
   /*    データの読み出し
 
@@ -92,23 +96,51 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 */
-  /*    データの書き込み
+        /*    データの書き込み
 
-   */
-        SharedPreferences preferences=getSharedPreferences("KEYBOARDS",MODE_PRIVATE);
-        String data="1,2";
-        preferences.edit().putString("ARRAY",data).commit();
-        String stringItem = preferences.getString("ARRAY","");
+         */
+/*
+        データが存在しないとき
+
+        SharedPreferences a=getSharedPreferences("KEY",MODE_PRIVATE);
+        String stringItemTest = a.getString("ARRAY","");
+        Log.i("test",stringItemTest+" is test string");
+        if (stringItemTest ==  "") {
+            Log.i("test","not defined");
+        }
+        */
+
+        //環境変数初期化フェーズ
+        SharedPreferences preferences = getSharedPreferences("KEYBOARDS", MODE_PRIVATE);
+        String keyboardOrderArray = preferences.getString("KEYBOARD_ORDER_ARRAY", "");
+        String keyboardButtonDisplayArray = preferences.getString("KEYBOARD_BUTTON_DISPLAY_ARRAY", "");
+        //キーボード一覧の順番の初期化
+        if (keyboardOrderArray == "") {
+            String arrayData = Arrays.toString(KeyboardData.KEYBOARD_INT);
+            String data = arrayData.substring(1, arrayData.length() - 1);
+            Log.i("init", "keyboard's order is " + data);
+            preferences.edit().putString("KEYBOARD_ORDER_ARRAY", data).commit();
+        }
+        //キーボード変更のボタンの初期化
+        if (keyboardButtonDisplayArray == "") {
+            String arrayData = Arrays.toString(KeyboardData.KEYBOARD_INT);
+            String data = arrayData.substring(1, arrayData.length() - 1);
+            Log.i("init", "display button is " + data);
+            preferences.edit().putString("KEYBOARD_ORDER_ARRAY", data).commit();
+        }
+
+        //確認のためのコード 他の箇所で使うが、最終的には削除予定
         String[] numString;
         int[] num;
-        if(stringItem != null && stringItem.length() != 0){
-            numString=stringItem.split(",",0);
-            if(numString[0]!=""){
+        if (keyboardOrderArray != null && keyboardOrderArray.length() != 0) {
+            //stringに空白も入っているので注意
+            numString = keyboardOrderArray.split(", ", -1);
+            if (numString[0] != "") {
                 int i;
-                num=new int[numString.length];
-                for(i=0;i<numString.length;i++){
-                    num[i]=Integer.parseInt(numString[i]);
-                    Log.i("data","num is "+num[i]);
+                num = new int[numString.length];
+                for (i = 0; i < numString.length; i++) {
+                    num[i] = Integer.parseInt(numString[i]);
+                    Log.i("data", "num is " + num[i]);
                 }
             }
         }
@@ -127,8 +159,8 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    public void showMyDialog()
-    {
+
+    public void showMyDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
         final View dialog_view = inflater.inflate(R.layout.add_formula_keyboard, null);
@@ -137,8 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 .setIcon(R.drawable.images)
                 .setTitle("Formula Keyboard")
                 .setPositiveButton("OK!",
-                        new DialogInterface.OnClickListener()
-                        {
+                        new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent();
@@ -148,8 +179,7 @@ public class MainActivity extends AppCompatActivity {
                         })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
+                    public void onClick(DialogInterface dialog, int which) {
                         //  cancel????
                         dialog.cancel();
                     }
