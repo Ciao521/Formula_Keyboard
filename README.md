@@ -31,6 +31,6 @@ buildscript {
     }
 }
 ```
-にある、`classpath 'com.android.tools.build:gradle:3.6.3'`を3.4.0あたりに変更してみると、改善する場合がある。詳しい原因はわかってないが、分かり次第、追記する。
+にある、`classpath 'com.android.tools.build:gradle:3.6.3'`を3.4.0あたりに変更してみると、改善する場合がある
 
 
