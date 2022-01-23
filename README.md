@@ -5,7 +5,7 @@
 formula keyboard
 
 ## アプリ概要
-
+理系(情報系)が使いやすいようにカスタマイズしたキーボードの作成
 
 ## slackのgitlabチャンネルについて
 gitlabチャンネルとこのプロジェクト内は連携されています。pushやwikiの編集、merge requestはgitlabチャンネルに通知されるようにしました。 
